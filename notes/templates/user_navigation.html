@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% load static %}
+  <title>Notes Sharing</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+<h4 class="text-center" style="padding:3%"><span style="color:darkgreen">Study Notes</span> <span style="color:darkblue">Sharing Sites</span></h4>
+<nav class="navbar navbar-expand-sm justify-content-center" style="background-color:lightgray">
+  <ul class="navbar-nav">
+    <li class="navbar-item ">
+      <a class="nav-link" href="{% url 'profile' %}">Home</a>
+    </li>
+    <li class="navbar-item ml-4">
+      <a class="nav-link" href="{% url 'upload_notes' %}">Upload Notes</a>
+    </li>
+    <li class="navbar-item ml-4">
+      <a class="nav-link" href="{% url 'mynotes' %}">My Notes</a>
+    </li>
+    <li class="navbar-item ml-4">
+      <a class="nav-link" href="{% url 'view_all_notes' %}">All Notes</a>
+    </li>
+
+    <div class="btn-group">
+        <button type="button" class="btn btn-primary dropdown-toggle ml-1" data-toggle="dropdown">Welcome {{request.user.first_name}}</button>
+         <div class="dropdown-menu text-center">
+            <a class="dropdown-item" href="#">PROFILE</a>
+            <a class="dropdown-item" href="{% url 'edit_profile' %}">EDIT PROFILE</a>
+            <a class="dropdown-item" href="{% url 'change_password' %}">CHANGE PASSWORD</a>
+         </div>
+    </div>
+      <li class="navbar-item ml-4">
+      <a class="nav-link" href="{% url 'admin_logout' %}">Logout</a>
+    </li>
+
+  </ul>
+
+
+</nav>
+
+</body>
+</html>
+{% block body %}
+{% endblock %}
